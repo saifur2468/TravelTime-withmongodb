@@ -9,11 +9,11 @@ const CountrySpots = () => {
   // দেশের নামগুলোর লিস্ট (ট্যাব বাটন তৈরির জন্য)
   const countries = ["Bangladesh", "Thailand", "Vietnam", "Malaysia", "Indonesia"];
 
-  
+
   useEffect(() => {
     setLoading(true);
-   
-   fetch('http://localhost:5000/favorite-country')
+
+    fetch('http://localhost:5000/favorite-country')
       .then(res => res.json())
       .then(data => {
         setAllSpots(data);
@@ -25,8 +25,8 @@ const CountrySpots = () => {
       });
   }, []);
 
-  
-  const filteredSpots = allSpots.filter(spot => 
+
+  const filteredSpots = allSpots.filter(spot =>
     spot.country_Name?.toLowerCase() === activeCountry.toLowerCase()
   );
 
@@ -43,11 +43,10 @@ const CountrySpots = () => {
           <button
             key={country}
             onClick={() => setActiveCountry(country)}
-            className={`px-8 py-3 rounded-2xl font-bold transition-all duration-300 transform ${
-              activeCountry === country
-                ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-xl scale-105"
-                : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 shadow-sm"
-            }`}
+            className={`px-8 py-3 rounded-2xl font-bold transition-all duration-300 transform ${activeCountry === country
+              ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-xl scale-105"
+              : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 shadow-sm"
+              }`}
           >
             {country}
           </button>
@@ -64,21 +63,21 @@ const CountrySpots = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {filteredSpots.length > 0 ? (
             filteredSpots.map((spot) => (
-              <div 
-                key={spot._id} 
+              <div
+                key={spot._id}
                 className="group bg-white rounded-[2rem] shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100"
               >
                 {/* Image Section */}
                 <div className="relative h-64 overflow-hidden">
-                  <img 
-                    src={spot.image} 
-                    alt={spot.tourists_spot_name} 
+                  <img
+                    src={spot.image}
+                    alt={spot.tourists_spot_name}
                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                   />
                   <div className="absolute bottom-4 left-4">
-                    <span className="bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full text-sm font-bold text-gray-800 shadow-sm">
-                       {spot.rating || '4.5'}
-                       <h1>{spot.Name}</h1>
+                    <span className=" text-xl text-white">
+                      {spot.rating || '4.5'}
+                      <h1>{spot.Name}</h1>
                     </span>
                   </div>
                 </div>
@@ -90,17 +89,18 @@ const CountrySpots = () => {
                       {spot.tourists_spot_name}
                     </h3>
                   </div>
-                  
+
                   <p className="text-gray-500 text-sm mb-6 line-clamp-2 leading-relaxed">
                     {spot.short_description}
                   </p>
-                  
+
                   <div className="flex items-center justify-between pt-5 border-t border-gray-100">
                     <div>
                       <p className="text-xs text-gray-400 uppercase font-bold tracking-wider">Starting from</p>
-                      <p className="text-xl font-black text-blue-600">${spot.averageCost}</p>
+                      <p className="text-xl font-black text-blue-600">${spot.
+average_cost}</p>
                     </div>
-                    {/* <Link to={`/spot/${spot._id}`}>
+                    {/* <Link>
                       <button className="bg-gray-900 text-white px-6 py-2.5 rounded-xl font-bold hover:bg-blue-600 transition-all shadow-md">
                         View Details
                       </button>
