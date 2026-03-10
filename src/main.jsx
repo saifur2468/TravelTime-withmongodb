@@ -17,6 +17,7 @@ import Register from "./Component/Authsection/Register";
 import PrivateRoute from "./Component/Routes/PrivateRoute";
 import SpotDetails from "./Component/Pages/SpotDetails";
 import CountrySpots from "./Component/Pages/CountrySpots"
+import AdminDashboard from "./Component/Pages/AdminDashboard";
 const router = createBrowserRouter([
   // {
   //   path: "/",
@@ -77,6 +78,14 @@ const router = createBrowserRouter([
   path: "country/:countryName/spots",
   element: <CountrySpots />
 
+},
+{
+  path:"/AdminDashboard",
+  element:(
+    <PrivateRoute>
+      <AdminDashboard></AdminDashboard>
+    </PrivateRoute>
+  )
 }
 
     ]

@@ -7,7 +7,7 @@ import { onAuthStateChanged, signOut } from 'firebase/auth';
 const Navbar = () => {
   const [currentBg, setCurrentBg] = useState(0);
   const [user, setUser] = useState(null);
-  const [isOpen, setIsOpen] = useState(false); // মোবাইল মেনু টগল করার জন্য
+  const [isOpen, setIsOpen] = useState(false); 
   const navigate = useNavigate();
 
   const backgrounds = [
@@ -39,12 +39,15 @@ const Navbar = () => {
       .catch((error) => console.log(error));
   };
 
-  // নেভিগেশন লিংকগুলো বারবার না লিখে ম্যাপ করার জন্য
+{/* <Link to="">
+             
+            </Link> */}
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'All Tourists Spot', path: '/allTouristSpot' },
     { name: 'Add Tourists Spot', path: '/AddTouristsSpot' },
     { name: 'My List', path: '/mylist' },
+    {name:" Dashbord",path: '/AdminDashboard'},
   ];
 
   return (
@@ -83,6 +86,7 @@ const Navbar = () => {
                 </NavLink>
               ))}
             </div>
+            
 
             {/* Auth Section & Mobile Toggle */}
             <div className="flex items-center gap-4">
