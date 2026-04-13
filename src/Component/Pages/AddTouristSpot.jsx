@@ -27,7 +27,7 @@ const AddTouristSpot = () => {
         };
 
         try {
-            const res = await fetch("http://localhost:5000/tourist-spots", {
+            const res = await fetch("https://lasttryserver.vercel.app/tourist-spots", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

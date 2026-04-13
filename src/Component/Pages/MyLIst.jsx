@@ -9,7 +9,7 @@ const MyList = () => {
 
   const fetchVisited = async () => {
     if (!auth.currentUser) return;
-    const res = await fetch(`http://localhost:5000/visited/${auth.currentUser.uid}`);
+    const res = await fetch(`https://lasttryserver.vercel.app/visited/${auth.currentUser.uid}`);
     const data = await res.json();
     setSpots(data);
   };
@@ -31,7 +31,7 @@ const MyList = () => {
     });
 
     if (result.isConfirmed) {
-      await fetch(`http://localhost:5000/visited/${id}`, { method: "DELETE" });
+      await fetch(`https://lasttryserver.vercel.app/visited/${id}`, { method: "DELETE" });
       Swal.fire("Deleted!", "Your spot has been deleted.", "success");
       fetchVisited();
     }
@@ -62,7 +62,7 @@ const MyList = () => {
   const handleUpdateSubmit = async (e) => {
     e.preventDefault();
     try {
-      await fetch(`http://localhost:5000/visited/${selectedSpot._id}`, {
+      await fetch(`https://lasttryserver.vercel.app/visited/${selectedSpot._id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

@@ -48,7 +48,7 @@ const AdminDashboard = () => {
 
   const fetchRequests = async () => {
 
-    const res = await fetch("http://localhost:5000/visit-request/all")
+    const res = await fetch("https://lasttryserver.vercel.app/visit-request/all")
 
     const data = await res.json()
 
@@ -61,7 +61,7 @@ const AdminDashboard = () => {
 
   const handleAccept = async (id) => {
 
-    await fetch(`http://localhost:5000/visit-request/${id}/accept`, {
+    await fetch(`https://lasttryserver.vercel.app/visit-request/${id}/accept`, {
       method: "PATCH"
     })
 
@@ -78,7 +78,7 @@ const AdminDashboard = () => {
 
   const handleDelete = async (id) => {
 
-    await fetch(`http://localhost:5000/visit-request/${id}`, {
+    await fetch(`https://lasttryserver.vercel.app/visit-request/${id}`, {
       method: "DELETE"
     })
 

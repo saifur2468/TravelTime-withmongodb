@@ -6,7 +6,7 @@ const CountryButtons = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/countries")
+    fetch("https://lasttryserver.vercel.app/api/countries")
       .then(res => res.json())
       .then(data => setCountries(data))
       .catch(err => console.error(err));

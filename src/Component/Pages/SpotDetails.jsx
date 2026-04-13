@@ -21,7 +21,7 @@
 //     };
 
 //     try {
-//       await fetch("http://localhost:5000/visited/add", {
+//       await fetch("https://lasttryserver.vercel.app/visited/add", {
 //         method: "POST",
 //         headers: { "Content-Type": "application/json" },
 //         body: JSON.stringify(visitedSpot),
@@ -33,7 +33,7 @@
 //     }
 //   };
 //   useEffect(() => {
-//     fetch(`http://localhost:5000/adddatapost-add/all`)
+//     fetch(`https://lasttryserver.vercel.app/adddatapost-add/all`)
 //       .then((res) => res.json())
 //       .then((data) => {
 //         const foundSpot = data.find((s) => s._id === id);
@@ -126,7 +126,7 @@ const SpotDetails = () => {
     };
 
     try {
-      await fetch("http://localhost:5000/visited/add", {
+      await fetch("https://lasttryserver.vercel.app/visited/add", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(visitedSpot),
@@ -152,7 +152,7 @@ const SpotDetails = () => {
     };
 
     try {
-      const res = await fetch("http://localhost:5000/visit-request", {
+      const res = await fetch("https://lasttryserver.vercel.app/visit-request", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(requestData),
@@ -171,7 +171,7 @@ const SpotDetails = () => {
 
   // Fetch spot details
   useEffect(() => {
-    fetch(`http://localhost:5000/adddatapost-add/all`)
+    fetch(`https://lasttryserver.vercel.app/adddatapost-add/all`)
       .then((res) => res.json())
       .then((data) => {
         const foundSpot = data.find((s) => s._id === id);
@@ -185,7 +185,7 @@ const SpotDetails = () => {
     if (!auth.currentUser) return;
 
     fetch(
-      `http://localhost:5000/visit-request/status?userId=${auth.currentUser.uid}&spotId=${id}`
+      `https://lasttryserver.vercel.app/visit-request/status?userId=${auth.currentUser.uid}&spotId=${id}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -231,9 +231,8 @@ const SpotDetails = () => {
       <button
         onClick={handleRequest}
         disabled={requestStatus === "Visited This Spot"}
-        className={`bg-green-500 text-center text-xl text-white w-[180px] rounded-xl h-[38px] ${
-          requestStatus === "Visited This Spot" ? "cursor-not-allowed" : "hover:bg-green-600"
-        }`}
+        className={`bg-green-500 text-center text-xl text-white w-[180px] rounded-xl h-[38px] ${requestStatus === "Visited This Spot" ? "cursor-not-allowed" : "hover:bg-green-600"
+          }`}
       >
         {requestStatus}
       </button>

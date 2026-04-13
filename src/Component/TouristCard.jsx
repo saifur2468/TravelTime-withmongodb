@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FaStar, FaMapMarkerAlt, FaExpand, FaTimes } from "react-icons/fa"; 
+import { FaStar, FaMapMarkerAlt, FaExpand, FaTimes } from "react-icons/fa";
 import { Typewriter } from "react-simple-typewriter";
 
 const TouristCard = () => {
@@ -7,7 +7,7 @@ const TouristCard = () => {
   const [selectedSpot, setSelectedSpot] = useState(null); // For modal
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/top-spots")
+    fetch("https://lasttryserver.vercel.app/api/top-spots")
       .then((res) => res.json())
       .then((data) => setSpots(data))
       .catch((err) => console.error(err));
